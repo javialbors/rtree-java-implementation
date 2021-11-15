@@ -126,9 +126,9 @@ public class RTree {
         ArrayList<RPoint> matches = new ArrayList<>();
         searchArea(root, rectangle, matches);
 
-        if (matches.size() <= 0) System.out.println("\nNo s'ha trobat cap tresor en aquesta àrea.");
+        if (matches.size() <= 0) System.out.println("\nPoint not found in this area.");
         else {
-            System.out.println("\nS'han trobat " + matches.size() + " tresors en aquesta àrea:\n");
+            System.out.println("\n" + matches.size() + "Points found in this area:\n");
             for (RPoint i: matches) {
                 System.out.println("\t- " + i.name + " (" + i.x + ", " + i.y + ")");
             }
@@ -174,14 +174,14 @@ public class RTree {
 
     public void searchByProximity(double x, double y, int num) {
         if (root.getChilds().size() == 0) {
-            System.out.println("\nNo s'ha trobat cap punt");
+            System.out.println("\nNo points were found");
             return;
         }
 
         ArrayList<RPoint> matches = new ArrayList<>();
         SBPRecursive(x, y, root, null, num, matches);
 
-        System.out.println("Els " + num + " tresors més propers a aquest punt són:\n");
+        System.out.println("The nearest" + num + " points to the point (" + x + ", " + y + ") are:\n");
         for (RPoint i: matches) {
             System.out.println("\t- " + i.name + " (" + i.x + ", " + i.y + ")");
         }
